@@ -11,7 +11,7 @@ async function LogoutUser(req, res) {
 
   try {
 
-    const token = verifyRefreshToken(auth_token);
+    const token = verifyToken(auth_token);
 
     const userid = token.id;
 
