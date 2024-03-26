@@ -15,7 +15,7 @@ async function LogoutUser(req, res) {
 
     const userid = token.id;
 
-    const response = await AuthToken.deleteOne({ userId: userid });
+    const response = await AuthToken.deleteMany({ userId: userid });
 
     if (response) {
       return responseMessage(res, 200, "Logout Successful")
