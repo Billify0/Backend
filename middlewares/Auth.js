@@ -13,7 +13,7 @@ async function Authorization(req, res, next) {
 
     const isValidToken = verifyToken(auth_token);
 
-    if (!isTokenExisting || !isValidToken) return responseMessage(res, 401, 'Unauthorized')
+    if (!isValidToken) return responseMessage(res, 401, 'Unauthorized')
 
     next();
 
