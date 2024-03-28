@@ -4,11 +4,11 @@ const { responseMessage } = require('../../helpers')
 async function addProduct(req, res) {
   try {
     const auth_token = req.headers['auth_token'];
+    console.log(auth_token);
     const { productName, productPrice, productCategory } = req.body
 
     const user = await AuthToken.findOne({ token: auth_token }).populate('userId');
-
-    if (!user) return responseMessage(res, 400, 'Invalid Auth Token');
+    if (!user) return responseMessage(res, 400, 'Unable to add product');
 
     const user_id = user.userId._id;
 
