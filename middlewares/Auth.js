@@ -4,8 +4,7 @@ const { AuthToken } = require('../models')
 
 async function Authorization(req, res, next) {
   try {
-    const auth_token = req.headers['auth_token']
-
+    const auth_token = req.headers["auth_token"]
 
     if (!auth_token) return responseMessage(res, 400, 'Token not found');
 

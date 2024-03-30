@@ -11,7 +11,7 @@ async function getAllProducts(req, res) {
 
     const user_id = user.userId._id;
 
-    const products = await Product.find({ userId: user_id });
+    const products = await Product.find({ userId: user_id }).sort({ createdAt: -1 });
 
     if (!products)
       return responseMessage(res, 200, 'No products found', []);
