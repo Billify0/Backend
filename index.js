@@ -3,7 +3,7 @@ const app = express()
 const cors = require('cors')
 const { APP_PORT } = require('./config')
 const { connectDB } = require('./connections')
-const { authRouter, productRouter,BillRouter } = require('./routes')
+const { authRouter, productRouter, BillRouter } = require('./routes')
 
 connectDB()
 
@@ -14,7 +14,7 @@ app.get('/', (req, res) => res.send('Hello World!'));
 
 app.use('/api/auth', authRouter);
 app.use('/api/product', productRouter);
-app.use('/api/Bill', BillRouter);
+app.use('/api/bill', BillRouter);
 
 
 

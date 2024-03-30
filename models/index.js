@@ -1,11 +1,11 @@
 const User = require('./User');
 const AuthToken = require('./AuthToken')
 const Product = require('./Product')
-const Bills=require('./Bills')
+const Bill = require('./Bills')
 
 module.exports = {
   User,
   AuthToken,
   Product,
-  Bills
+  Bill
 }

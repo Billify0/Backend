@@ -1,20 +1,20 @@
-const { Product, AuthToken } = require('../../models')
+const { Product, AuthToken, Bill } = require('../../models')
 const { responseMessage } = require('../../helpers')
 
 // const {nanoid} = require('nanoid');
 
-const uniqid=require('uniqid')
+const uniqid = require('uniqid')
 
 async function CreateBillController(req, res) {
   try {
     const auth_token = req.headers['auth_token'];
-    const { products,totalPrice } = req.body
+    const { products, totalPrice } = req.body
 
     const user = await AuthToken.findOne({ token: auth_token }).populate('userId');
 
     if (!user) return responseMessage(res, 400, 'Invalid Auth Token');
 
-    const BillId=uniqid();
+    const BillId = uniqid();
 
     // const BillId=123456;
 
@@ -25,7 +25,7 @@ async function CreateBillController(req, res) {
     });
 
 
-    return responseMessage(res, 201, 'Bill Generated  Successfully', {BillId});
+    return responseMessage(res, 201, 'Bill Generated  Successfully', { BillId });
 
 
   } catch (error) {

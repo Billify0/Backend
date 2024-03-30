@@ -5,8 +5,8 @@ const router = express.Router();
 const { DisplayBillController } = require('../controllers')
 
 
-router.post('/Createbill', CreateBillController);
+router.post('/createbill', CreateBillController);
 
-router.get('/GetBill/:BillId', DisplayBillController);
+router.get('/getBill/:billid', DisplayBillController);
 
 module.exports = router;

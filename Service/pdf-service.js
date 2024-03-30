@@ -3,23 +3,23 @@ const PDFDocument = require('pdfkit');
 
 
 
-function buildpdf(dataCallback,endcallback,bill) {
+function buildpdf(dataCallback, endcallback, bill) {
 
-    const BillId=bill.BillId;
-    const product = bill.products;
-    
-      const total= bill.totalPrice;
+  const BillId = bill.BillId;
+  const products = bill.products;
 
-    const doc = new PDFDocument();
+  const total = bill.totalPrice;
 
-    doc.on('data', dataCallback);
-    doc.on('end', endcallback);
-//     doc
-//   .fontSize(25)
-//   .text('Some text with an embedded font!', 100, 100);
+  const doc = new PDFDocument();
+
+  doc.on('data', dataCallback);
+  doc.on('end', endcallback);
+  //     doc
+  //   .fontSize(25)
+  //   .text('Some text with an embedded font!', 100, 100);
 
 
-doc.fontSize(16).text('Invoice', { align: 'center' });
+  doc.fontSize(16).text(`Invoice (Billid :: ${BillId})`, { align: 'center' });
   doc.fontSize(12).text(`Date: ${new Date().toLocaleDateString()}`, { align: 'right' });
   doc.moveDown();
 
@@ -43,10 +43,10 @@ doc.fontSize(16).text('Invoice', { align: 'center' });
   doc.font('Helvetica-Bold').text('Total:', 300, y + 20);
   doc.text(total.toString(), 400, y + 20);
 
-  
+
   doc.end();
 }
 
 module.exports = {
-    buildpdf
+  buildpdf
 }
