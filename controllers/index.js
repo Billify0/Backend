@@ -6,8 +6,9 @@ const GetAllProductsController = require('./ProductsContollers/GetAllProductsCon
 const GetProductByIdController = require('./ProductsContollers/GetProductByIdController')
 const DeleteProductController = require('./ProductsContollers/DeleteProductController')
 const UpdateProductcontroller = require('./ProductsContollers/UpdateProductController')
-const CreateBillController =require('./BillControllers/CreateBillController')
-const DisplayBillController =require('./BillControllers/DisplayBillController')
+const CreateBillController = require('./BillControllers/CreateBillController')
+const DisplayBillController = require('./BillControllers/DisplayBillController')
+const GetAllBillsController = require('./BillControllers/GetAllBillController')
 
 module.exports = {
   RegisterController,
@@ -19,6 +20,7 @@ module.exports = {
   DeleteProductController,
   UpdateProductcontroller,
   CreateBillController,
-  DisplayBillController
+  DisplayBillController,
+  GetAllBillsController
 
 }

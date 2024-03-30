@@ -13,12 +13,13 @@ async function CreateBillController(req, res) {
     const user = await AuthToken.findOne({ token: auth_token }).populate('userId');
 
     if (!user) return responseMessage(res, 400, 'Invalid Auth Token');
-
+    const userId = user.userId._id;
     const BillId = uniqid();
 
     // const BillId=123456;
 
     const bill = await Bill.create({
+      userId,
       BillId,
       products,
       totalPrice,
