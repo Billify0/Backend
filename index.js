@@ -8,7 +8,17 @@ const { authRouter, productRouter, BillRouter } = require('./routes')
 connectDB()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: ["https://backend-7d45dv5l4-rishikesh-revandikars-projects.vercel.app/"],
+  methods: [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE",
+    "PATCH",
+    "OPTIONS"],
+  credentials: true
+}))
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
