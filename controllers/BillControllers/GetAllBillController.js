@@ -11,7 +11,7 @@ async function GetAllBillsController(req, res) {
 
     const user_id = user.userId._id;
 
-    const bills = await Bill.find({ userId: user_id });
+    const bills = await Bill.find({ userId: user_id }).sort({ createdAt: -1 });
 
     if (!bills)
       return responseMessage(res, 200, 'No bills found', []);
