@@ -9,7 +9,7 @@ connectDB()
 
 app.use(express.json())
 app.use(cors({
-  origin: ["https://backend-7d45dv5l4-rishikesh-revandikars-projects.vercel.app/"],
+  origin: ["*"],
   methods: [
     "GET",
     "POST",
