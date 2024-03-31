@@ -8,17 +8,7 @@ const { authRouter, productRouter, BillRouter } = require('./routes')
 connectDB()
 
 app.use(express.json())
-app.use(cors({
-  origin: ["https://backend-rz59.onrender.com"],
-  methods: [
-    "GET",
-    "POST",
-    "PUT",
-    "DELETE",
-    "PATCH",
-    "OPTIONS"],
-  credentials: true
-}))
+app.use(cors())
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
